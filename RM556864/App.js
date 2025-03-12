@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, Text, Image, View,TextInput, Button } from 'react-native';
-import Resultado from './components/resultado';
+import Resultado from './components/Resultado';
 
 export default function App() {
 
@@ -8,14 +8,6 @@ export default function App() {
   const[nomeProduto,setNomeProduto]=useState('')
   const[porcentagemAumento,setPorcentagemAumento]=useState('')
   const[mostrarDados,setMostrarDados] = useState(false)
-  
-   function exibirDados(){
-     if(mostrarDados){
-       return <Text>{nomeProduto} - {valorProduto} - {porcentagemAumento} - {valorFinal}</Text>
-     }else{
-       return null
-     }
-   }
 
   return (
     <View style={styles.container}>
@@ -53,7 +45,7 @@ export default function App() {
         onPress={()=>setMostrarDados(true)}
       />
 
-      {mostrarDados&&<Resultado nomeProduto={nomeProduto} valorProduto={valorProduto} porcentagemAumento={porcentagemAumento}/>}
+      {mostrarDados&&<Resultado nomeProduto={nomeProduto} valorProduto={valorProduto} porcentagemAumento={porcentagemAumento} valorFinal={valorFinal}/>}
     </View>
   );
 }
