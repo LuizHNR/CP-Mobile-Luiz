@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, Image, View,TextInput, Button } from 'react-native';
 import Resultado from './components/Resultado';
 
-export default function App() {
+export default function App(props) {
 
   const[valorProduto,setValorProduto]=useState('')
   const[nomeProduto,setNomeProduto]=useState('')
@@ -45,7 +45,7 @@ export default function App() {
         onPress={()=>setMostrarDados(true)}
       />
 
-      {mostrarDados&&<Resultado nomeProduto={nomeProduto} valorProduto={valorProduto} porcentagemAumento={porcentagemAumento} valorFinal={valorFinal}/>}
+      {mostrarDados&&<Resultado nomeProduto={nomeProduto} valorProduto={valorProduto} porcentagemAumento={porcentagemAumento} valorFinal={props.valorFinal}/>}
     </View>
   );
 }
